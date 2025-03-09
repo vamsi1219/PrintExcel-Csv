@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Data</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJx3OaF7VJt3A6JtRcuG5t6AERk0c6+7S2ZRnHegFz9JmPz70FqVQFJfZgFz" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Uploaded File Data</h1>
+
+    <!-- Table with Bootstrap classes for styling -->
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-dark">
+        <tr>
+            <!-- Loop through the first row (header) -->
+            <th th:each="header : ${data.get(0)}" th:text="${header}" class="text-center"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Loop through the rest of the rows (data), skipping the first row -->
+        <tr th:each="row, rowStat : ${data}" th:if="${rowStat.index > 0}">
+            <td th:each="cell : ${row}" th:text="${cell}" class="text-center"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Button to go back to the upload form -->
+    <div class="text-center mt-4">
+        <a href="/" class="btn btn-primary">Back to Upload Form</a>
+    </div>
+</div>
+
+<!-- Add Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybB5HzlJ0S1wV+vQxZxI1zJZkpmIlbQ7h2a2TxAPr5d0W9P9s" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0rV2vXMyAy/KrWv0vQb6l/9LsFvDnp0XNOfm3gd8lgUj5b6d" crossorigin="anonymous"></script>
+
+</body>
+</html>
