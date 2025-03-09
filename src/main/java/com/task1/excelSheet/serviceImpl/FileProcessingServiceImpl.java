@@ -74,7 +74,7 @@ class FileProcessingHelper {
 
             // Add the first row (header) to the data at position 0
             if (firstRowData != null) {
-                data.add(0, firstRowData);  // Ensure that the header is at the 0th index
+                data.add(0, firstRowData);  
             }
         }
 
@@ -114,7 +114,7 @@ class FileProcessingHelper {
                     for (Cell cell : row) {
                         rowData.add(cell.toString());
                     }
-                    data.add(rowData);  // Add the rows starting from startRow
+                    data.add(rowData);  
                 }
                 currentRow++;
             }
